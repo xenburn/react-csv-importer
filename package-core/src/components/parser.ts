@@ -68,6 +68,7 @@ export function parsePreview(file: File): Promise<PreviewResults> {
     // @todo close the stream
     const nodeStream = new ReadableWebToNodeStream(file.stream());
     Papa.parse(nodeStream, {
+      	comments: true,
       chunkSize: 10000, // not configurable, preview only
       preview: PREVIEW_ROW_COUNT,
       skipEmptyLines: true,
